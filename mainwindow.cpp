@@ -85,7 +85,6 @@ void MainWindow::update()
 void MainWindow::on_position_sliderPressed()
 {
     previoustime = time(0);
-    cout << previoustime << endl;
 }
 
 void MainWindow::on_position_sliderReleased()
@@ -99,6 +98,7 @@ void MainWindow::on_next_clicked()
     {
         player.nextmusic();
         printdata();
+        cout << "[] " << player.getcurrentmusic()->gettitle() << " is now playing..." << endl;
         ui->position->setMaximum(player.getcurrentmusic()->getlength());
         slidervalue = 0;
         ui->position->setValue(slidervalue);
@@ -115,6 +115,7 @@ void MainWindow::on_previous_clicked()
     {
         player.previousmusic();
         printdata();
+        cout << "[] " << player.getcurrentmusic()->gettitle() << " is now playing..." << endl;
         ui->position->setMaximum(player.getcurrentmusic()->getlength());
         slidervalue = 0;
         ui->position->setValue(slidervalue);
